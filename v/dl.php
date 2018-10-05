@@ -8,7 +8,7 @@ $videoFetchURL = "http://www.youtube.com/get_video_info?&video_id=" . $vid_id . 
 $videoData = get($videoFetchURL);
 
 parse_str($videoData, $video_info);
-print_r($video_info);
+//print_r($video_info);
 ?>
 <!doctype HTMl>
 <html lang="en">
@@ -24,7 +24,7 @@ print_r($video_info);
                 <h1>Kxrie.me</h1>
             </a>
         </nav>
-        <h2 class="container p-3">ur link is <?php echo '<pre>'; print_r($video_info); echo '</pre>'; ?></h2>
+        <h2 class="container p-3">ur link is <?php echo '<pre>'; print_r($videodata); echo '</pre>'; ?></h2>
     </body>
     <footer class="footer"><div class="container" style="text-align: center;">
          &copy; Jayden Zhang 2018
