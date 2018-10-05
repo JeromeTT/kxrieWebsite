@@ -1,5 +1,3 @@
-
-
 <!doctype HTMl>
 <html lang="en">
     <head>
@@ -12,20 +10,24 @@
     <?php
 error_reporting(1);
 require "init.php";
-require "/keys/ytapi";
 //finding ID of video
 $link = $_GET["inputLink"];
 parse_str($link, $urlData);
 $id = array_values($urlData)[0];
+//finding api
+$api = file_get_contents($_SERVER['DOCUMENT_ROOT']."/keys/ytapi");
 
-$api = file_get_contents("/keys/ytapi");
+$url = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails,snippet,statistics&id=". $id ."&key=". $api;
+$c = file_get_contents($url);
+$s = json_decode($c);
 ?>
         <nav class="navbar navbar-light bg-primary">
             <a class="navbar-brand" href="/">
                 <h1>Kxrie.me</h1>
             </a>
         </nav>
-        <h2 class="container p-3">ur link is <?php echo $api?></h2>
+        <h2 class="container p-3">Raw data xd ill work on it later </h2>
+        <?php var_dump($s);?>
     </body>
     <footer class="footer"><div class="container" style="text-align: center;">
          &copy; Jayden Zhang 2018
