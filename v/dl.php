@@ -8,7 +8,33 @@ $videoFetchURL = "http://www.youtube.com/get_video_info?&video_id=" . $vid_id . 
 $videoData = get($videoFetchURL);
 
 parse_str($videoData, $video_info);
-//print_r($video_info);
+parse_str($videoData, $video_info);
+
+$video_info = json_decode(json_encode($video_info));
+if (!$video_info->status ===  "ok") {
+    die("error in fetching youtube video data");
+}
+$videoTitle = $video_info->title;
+$videoAuthor = $video_info->author;
+$videoDurationSecs = $video_info->length_seconds;
+$videoDuration = secToDuration($videoDurationSecs);
+$videoViews = $video_info->view_count;
+
+//change hqdefault.jpg to default.jpg for downgrading the thumbnail quality
+$videoThumbURL = "http://i1.ytimg.com/vi/{$my_id}/hqdefault.jpg";
+
+if (!isset($video_info->url_encoded_fmt_stream_map)) {
+    die('No data found');
+}
+
+$streamFormats = explode(",", $video_info->url_encoded_fmt_stream_map);
+
+if (isset($video_info->adaptive_fmts)) {
+    $streamSFormats = explode(",", $video_info->adaptive_fmts);
+    $pStreams = parseStream($streamSFormats);
+}
+    $cStreams = parseStream($streamFormats);
+
 ?>
 <!doctype HTMl>
 <html lang="en">
@@ -24,7 +50,7 @@ parse_str($videoData, $video_info);
                 <h1>Kxrie.me</h1>
             </a>
         </nav>
-        <h2 class="container p-3">ur link is <?php echo $link; ?></h2>
+        <h2 class="container p-3">ur link is </h2>
     </body>
     <footer class="footer"><div class="container" style="text-align: center;">
          &copy; Jayden Zhang 2018
