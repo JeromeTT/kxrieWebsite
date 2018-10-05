@@ -58,3 +58,4 @@ echo <<<END
     </div></footer>
 </html>
 END;
+?>
