@@ -1,5 +1,6 @@
 <?php
 $link = $_GET["inputLink"]
+parse_str($link, $urlData)
 ?>
 <!doctype HTMl>
 <html lang="en">
@@ -15,7 +16,7 @@ $link = $_GET["inputLink"]
                 <h1>Kxrie.me</h1>
             </a>
         </nav>
-        <h2 class="container p-3">ur link is <?php echo $link; ?></h2>
+        <h2 class="container p-3">ur link is <?php echo $urlData[0]; ?><br><?php echo $urlData[1]; ?></h2>
     </body>
     <footer class="footer"><div class="container" style="text-align: center;">
          &copy; Jayden Zhang 2018
