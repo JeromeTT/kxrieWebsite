@@ -1,5 +1,5 @@
 <?php
-error_reporting(1)
+error_reporting(1);
 require "/v/init.php";
 $link = $_GET["inputLink"];
 parse_str($link, $urlData);
