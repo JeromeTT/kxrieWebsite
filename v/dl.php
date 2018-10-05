@@ -1,6 +1,6 @@
 <?php
 error_reporting(1)
-require "init.php";
+require "/v/init.php";
 $link = $_GET["inputLink"];
 parse_str($link, $urlData);
 $vid_id = array_values($urlData)[0];
