@@ -8,7 +8,6 @@ $videoFetchURL = "http://www.youtube.com/get_video_info?&video_id=" . $vid_id . 
 $videoData = get($videoFetchURL);
 
 parse_str($videoData, $video_info);
-parse_str($videoData, $video_info);
 
 $video_info = json_decode(json_encode($video_info));
 if (!$video_info->status ===  "ok") {
@@ -21,7 +20,7 @@ $videoDuration = secToDuration($videoDurationSecs);
 $videoViews = $video_info->view_count;
 
 //change hqdefault.jpg to default.jpg for downgrading the thumbnail quality
-$videoThumbURL = "http://i1.ytimg.com/vi/{$my_id}/hqdefault.jpg";
+$videoThumbURL = "http://i1.ytimg.com/vi/{$vid_id}/hqdefault.jpg";
 
 if (!isset($video_info->url_encoded_fmt_stream_map)) {
     die('No data found');
