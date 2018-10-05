@@ -19,8 +19,8 @@ $channel_link = $s->items[0]->snippet->channelId;
 $channel_name =  $s->items[0]->snippet->channelTitle;
 $tags =  $s->items[0]->snippet->tags;
 $description = $s->items[0]->snippet->description;
-$thumbnail = $s->items[0]->snippet->thumbnails->maxres;
-
+$thumbnail = $s->items[0]->snippet->thumbnails->maxres->url;
+$tags = print_r($tags)
 echo <<<END
 <!doctype HTMl>
 <html lang="en">
@@ -43,12 +43,11 @@ echo <<<END
                 <ul>
                     <li>Title: $video_title</li>
 					<li>Published Date: $publish_date</li>
-                    <li>$channel_link</li>
-                    <li>$channel_name</li>
-                    <li>$tags</li>
-                    <li>$description</li>
-                    <li>$thumbnail</li>
-                    <li>01/03/2018 - Domain</li>
+                    <li>Channel URL: https://www.youtube.com/channel/$channel_link</li>
+                    <li>Channel names: $channel_name</li>
+                    <li>Tags: $tags)</li>
+                    <li>Description: $description</li>
+                    <li>Thumbnail URL: $thumbnail</li>
                 </ul>
 
          </div>
