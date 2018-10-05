@@ -1,6 +1,14 @@
 <?php
+require "init.php"
 $link = $_GET["inputLink"]
 parse_str($link, $urlData)
+$vid_id = array_values($urlData)[0];
+
+$videoFetchURL = "http://www.youtube.com/get_video_info?&video_id=" . $vid_id . "&asv=3&el=detailpage&hl=en_US";
+$videoData = get($videoFetchURL);
+
+parse_str($videoData, $video_info);
+print_r($video_info);
 ?>
 <!doctype HTMl>
 <html lang="en">
@@ -16,7 +24,7 @@ parse_str($link, $urlData)
                 <h1>Kxrie.me</h1>
             </a>
         </nav>
-        <h2 class="container p-3">ur link is <?php echo $urlData[0]; ?><br><?php echo $urlData[1]; ?></h2>
+        <h2 class="container p-3">ur link is <?php echo $vid_id; ?></h2>
     </body>
     <footer class="footer"><div class="container" style="text-align: center;">
          &copy; Jayden Zhang 2018
