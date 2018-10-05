@@ -16,7 +16,9 @@
         <div class="container bg-light p-3">
         <form action="dl.php" method="get">
             <div class="form-group">
-                <label for="inputLink">Link</label>
+                <label for="inputLink">  <?php
+    phpinfo();
+    ?></label>
                 <input type="url" class="form-control" name="inputLink" placeholder="Vid URL">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
