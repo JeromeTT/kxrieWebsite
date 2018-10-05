@@ -1,13 +1,14 @@
 <?php
 error_reporting(1);
-require "/v/init.php";
+echo "hello world"
+require "init.php";
 $link = $_GET["inputLink"];
 parse_str($link, $urlData);
 $vid_id = array_values($urlData)[0];
 
 $videoFetchURL = "http://www.youtube.com/get_video_info?&video_id=" . $vid_id . "&asv=3&el=detailpage&hl=en_US";
 $videoData = get($videoFetchURL);
-
+echo "hello world"
 parse_str($videoData, $video_info);
 
 $video_info = json_decode(json_encode($video_info));
@@ -19,6 +20,7 @@ $videoAuthor = $video_info->author;
 $videoDurationSecs = $video_info->length_seconds;
 $videoDuration = secToDuration($videoDurationSecs);
 $videoViews = $video_info->view_count;
+echo "hello world"
 
 //change hqdefault.jpg to default.jpg for downgrading the thumbnail quality
 $videoThumbURL = "http://i1.ytimg.com/vi/{$vid_id}/hqdefault.jpg";
