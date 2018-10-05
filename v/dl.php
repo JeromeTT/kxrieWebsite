@@ -19,7 +19,7 @@ $channel_link = $s->items[0]->snippet->channelId;
 $channel_name =  $s->items[0]->snippet->channelTitle;
 $tags =  $s->items[0]->snippet->tags;
 $description = $s->items[0]->snippet->description;
-$thumbnail = $s->items[0]->snippet->thumbnails->maxres->url;
+$thumbnail = $s->items[0]->snippet->thumbnails->standard->url;
 $tags = print_r($tags);
 echo <<<END
 <!doctype HTMl>
