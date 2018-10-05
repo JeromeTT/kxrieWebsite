@@ -1,13 +1,13 @@
 <?php
 error_reporting(1);
 require "init.php";
-require "/keys/ytapi"
+require "/keys/ytapi";
 //finding ID of video
 $link = $_GET["inputLink"];
 parse_str($link, $urlData);
 $id = array_values($urlData)[0];
 
-$api = file_get_contents("/keys/ytapi")
+$api = file_get_contents("/keys/ytapi");
 ?>
 
 <!doctype HTMl>
