@@ -1,14 +1,4 @@
-<?php
-error_reporting(1);
-require "init.php";
-require "/keys/ytapi";
-//finding ID of video
-$link = $_GET["inputLink"];
-parse_str($link, $urlData);
-$id = array_values($urlData)[0];
 
-$api = file_get_contents("/keys/ytapi");
-?>
 
 <!doctype HTMl>
 <html lang="en">
@@ -19,6 +9,17 @@ $api = file_get_contents("/keys/ytapi");
         <title>YT Stat</title>
     </head>
     <body>
+    <?php
+error_reporting(1);
+require "init.php";
+require "/keys/ytapi";
+//finding ID of video
+$link = $_GET["inputLink"];
+parse_str($link, $urlData);
+$id = array_values($urlData)[0];
+
+$api = file_get_contents("/keys/ytapi");
+?>
         <nav class="navbar navbar-light bg-primary">
             <a class="navbar-brand" href="/">
                 <h1>Kxrie.me</h1>
