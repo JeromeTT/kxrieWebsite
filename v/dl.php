@@ -1,7 +1,7 @@
 <?php
-require "init.php"
-$link = $_GET["inputLink"]
-parse_str($link, $urlData)
+require "init.php";
+$link = $_GET["inputLink"];
+parse_str($link, $urlData);
 $vid_id = array_values($urlData)[0];
 /*
 $videoFetchURL = "http://www.youtube.com/get_video_info?&video_id=" . $vid_id . "&asv=3&el=detailpage&hl=en_US";
