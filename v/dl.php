@@ -1,15 +1,18 @@
 <?php
 error_reporting(1);
-echo "hello world"
+echo "hello world1";
 require "init.php";
 $link = $_GET["inputLink"];
 parse_str($link, $urlData);
+echo "hello world2";
 $vid_id = array_values($urlData)[0];
+echo "hello world3";
 
 $videoFetchURL = "http://www.youtube.com/get_video_info?&video_id=" . $vid_id . "&asv=3&el=detailpage&hl=en_US";
 $videoData = get($videoFetchURL);
-echo "hello world"
+echo "hello world4";
 parse_str($videoData, $video_info);
+echo "hello world5";
 
 $video_info = json_decode(json_encode($video_info));
 if (!$video_info->status ===  "ok") {
