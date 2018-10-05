@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL)
 require "init.php";
 $link = $_GET["inputLink"];
 parse_str($link, $urlData);
