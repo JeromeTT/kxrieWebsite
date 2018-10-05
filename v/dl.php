@@ -1,3 +1,12 @@
+<!doctype HTMl>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="/main.css">
+        <title>YT Stat</title>
+    </head>
+    <body>
 <?php
 error_reporting(1);
 echo "hello world1";
@@ -23,7 +32,7 @@ $videoAuthor = $video_info->author;
 $videoDurationSecs = $video_info->length_seconds;
 $videoDuration = secToDuration($videoDurationSecs);
 $videoViews = $video_info->view_count;
-echo "hello world"
+echo "hello world";
 
 //change hqdefault.jpg to default.jpg for downgrading the thumbnail quality
 $videoThumbURL = "http://i1.ytimg.com/vi/{$vid_id}/hqdefault.jpg";
@@ -41,15 +50,7 @@ if (isset($video_info->adaptive_fmts)) {
     $cStreams = parseStream($streamFormats);
 
 ?>
-<!doctype HTMl>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="/main.css">
-        <title>YT Stat</title>
-    </head>
-    <body>
+
         <nav class="navbar navbar-light bg-primary">
             <a class="navbar-brand" href="/">
                 <h1>Kxrie.me</h1>
